@@ -1,3 +1,5 @@
+import { SnapType } from "./snap-type.type";
+
 export class FaceSnap {
 
     location?: string;
@@ -19,16 +21,16 @@ export class FaceSnap {
         this.snaps--;
     }
 
+    snap(snapType : SnapType): void {
+        if (snapType === 'snap') {
+            this.addSnap();
+        } else if (snapType === 'unsnap'){
+            this.unSnap();
+        }
+    }
+
     setLocation(location: string): FaceSnap {
         this.location = location;
         return this;
     }
-
-    // Fonction de base quand setLocation était de type void
-    // (pourquoi openClassroom n'a pas modifié comme j'ai fait et à ajouté withLocation?)
-    //
-    // withLocation(location: string): FaceSnap {
-    //     this.setLocation(location);
-    //     return this;
-    // }
 }

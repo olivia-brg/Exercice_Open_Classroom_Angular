@@ -40,13 +40,13 @@ export class FaceSnapComponent implements OnInit {
   }
 
   addSnap(): void {
-    this.faceSnapsService.snapFaceSnapById(this.faceSnap.id)
+    this.faceSnapsService.snapFaceSnapById(this.faceSnap.id, 'snap')
     this.userHasSnapped = true;
     this.buttonText = `Oops, unsnap!`;
   }
 
   unSnap(): void {
-    this.faceSnap.unSnap();
+    this.faceSnapsService.snapFaceSnapById(this.faceSnap.id, 'unsnap')
     this.userHasSnapped = false;
     this.buttonText = `Oh snap!`;
   }
@@ -54,6 +54,5 @@ export class FaceSnapComponent implements OnInit {
   getSnapColor(): string {
     return `rgb(${255 - this.faceSnap.snaps}, ${this.faceSnap.snaps}, 0)`;
   }
-
 }
 

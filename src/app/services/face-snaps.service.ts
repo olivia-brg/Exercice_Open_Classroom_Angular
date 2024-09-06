@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { FaceSnap } from "../models/face-snap";
+import { SnapType } from "app/models/snap-type.type";
 
 @Injectable({
     providedIn: "root"
@@ -21,24 +22,24 @@ export class FaceSnapsService {
           new Date,
           125
         ).setLocation("chez moi"),
-        new FaceSnap(
-          `Ma future chérie 🤞`,
-          `La plus belle 🥰`,
-          `https://media.licdn.com/dms/image/D4E03AQFjdfO5gC2_eA/profile-displayphoto-shrink_200_200/0/1721398647896?e=2147483647&v=beta&t=yPEvrDKpnMbQQGldBvgRGcMb8cCYmZpA5hcJXwI4rnA`,
-          new Date,
-          280
-        )
+        // new FaceSnap(
+        //   `Ma future chérie 🤞`,
+        //   `La plus belle 🥰`,
+        //   `https://media.licdn.com/dms/image/D4E03AQFjdfO5gC2_eA/profile-displayphoto-shrink_200_200/0/1721398647896?e=2147483647&v=beta&t=yPEvrDKpnMbQQGldBvgRGcMb8cCYmZpA5hcJXwI4rnA`,
+        //   new Date,
+        //   280
+        // )
     ];
 
     getFaceSnaps(): FaceSnap[] {
         return [...this.faceSnaps];
     }
 
-    snapFaceSnapById(faceSnapId: string): void {
+    snapFaceSnapById(faceSnapId: string, snapType : SnapType): void {
         const foundFaceSnap = this.faceSnaps.find(faceSnap => faceSnap.id === faceSnapId);
         if(!foundFaceSnap) {
             throw new Error("FaceSnap not found!"); 
         }
-        foundFaceSnap.addSnap();
+        foundFaceSnap.snap(snapType);
     }
 }
