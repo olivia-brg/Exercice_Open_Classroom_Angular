@@ -21,14 +21,7 @@ export class FaceSnapsService {
           `https://media.licdn.com/dms/image/v2/D4D03AQE_2Iuw379tMA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1725310131824?e=1730937600&v=beta&t=kDfwHrEN6JJ9BMG3IjzSLQTOlbrs3yWXOA0zH6wkXx0`,
           new Date,
           125
-        ).setLocation("chez moi"),
-        // new FaceSnap(
-        //   `Ma future chérie 🤞`,
-        //   `La plus belle 🥰`,
-        //   `https://media.licdn.com/dms/image/D4E03AQFjdfO5gC2_eA/profile-displayphoto-shrink_200_200/0/1721398647896?e=2147483647&v=beta&t=yPEvrDKpnMbQQGldBvgRGcMb8cCYmZpA5hcJXwI4rnA`,
-        //   new Date,
-        //   280
-        // )
+        ).setLocation("chez moi")
     ];
 
     getFaceSnaps(): FaceSnap[] {
