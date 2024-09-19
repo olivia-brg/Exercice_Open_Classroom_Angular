@@ -1,1 +1,15 @@
-<p>single-face-snap works!</p>
+<div class="face-snap-card" [ngClass]="{snapped: userHasSnapped}">
+    <h2>{{faceSnap.title | uppercase }}</h2>
+    @if (faceSnap.location) {
+        <p>Localisation : {{faceSnap.location}}</p>
+    } @else {
+        <p>Localisation non spécifiée</p>
+    }
+    <img [src]="faceSnap.imageUrl" [alt]="faceSnap.title">
+    <p>{{faceSnap.description}}</p>
+    <p>FaceSnap créée le {{faceSnap.createdAt | date:"dd/MM/YY, HH:mm"}}</p>
+    <p>
+        <button (click)="onSnap()">{{buttonText}}</button>
+        <span [ngStyle]="{ color: getSnapColor() }">🤌 {{faceSnap.snaps}}</span>
+    </p>
+</div>
